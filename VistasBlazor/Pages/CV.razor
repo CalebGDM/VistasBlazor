@@ -1,55 +1,164 @@
 ﻿@page "/"
-
 <PageTitle>CV</PageTitle>
 
-
-
 <section class="container py-5">
-    <div class="row align-items-center">
-        
-        <!-- Foto -->
-        <div class="col-md-3 text-center mb-4 mb-md-0">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVxZ56uA0-k2SqZDPiwiQ7nA798xVrecSONg&s"
-                 class="img-fluid rounded-circle shadow-lg border border-3 border-info"
-                 alt="Foto CV" />
-        </div>
-
-        <!-- Secciones -->
-        <div class="mt-5 col-md-8">
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-info text-white fw-bold">Experiencia</div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at dignissim nunc.</p>
-                </div>
+    <div class="cv-container p-5">
+        <!-- Header con foto y datos personales -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-3 text-center mb-4 mb-md-0">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVxZ56uA0-k2SqZDPiwiQ7nA798xVrecSONg&s"
+                     class="profile-img rounded-circle"
+                     alt="Foto CV" />
             </div>
-
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-info text-white fw-bold">Educación</div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at dignissim nunc.</p>
-                </div>
-            </div>
-
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-info text-white fw-bold">Proyectos</div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at dignissim nunc.</p>
-                </div>
-            </div>
-
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-info text-white fw-bold">Habilidades</div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at dignissim nunc.</p>
+            <div class="col-md-9">
+                <h1 class="name-title">Juan Pérez García</h1>
+                <p class="subtitle">Desarrollador Full Stack | Ingeniero de Software</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <span>juan.perez@email.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📱</i>
+                        <span>+52 312 123 4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>Colima, México</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>💼</i>
+                        <span>linkedin.com/in/juanperez</span>
+                    </div>
                 </div>
             </div>
         </div>
-       
+
+        <div class="row">
+            <div class="col-12">
+                <!-- Experiencia -->
+                <div class="section-card shadow">
+                    <div class="section-header">
+                        <i>💼</i>
+                        <span>Experiencia Profesional</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="experience-item">
+                            <div class="item-title">Desarrollador Senior Full Stack</div>
+                            <div class="item-subtitle">Tech Solutions Inc.</div>
+                            <div class="item-date">Enero 2021 - Presente</div>
+                            <p class="mb-0">Desarrollo de aplicaciones web usando React, .NET Core y SQL Server. Liderazgo de equipo de 5 desarrolladores y implementación de arquitecturas escalables.</p>
+                        </div>
+                        <div class="experience-item">
+                            <div class="item-title">Desarrollador Web Junior</div>
+                            <div class="item-subtitle">Digital Agency MX</div>
+                            <div class="item-date">Junio 2019 - Diciembre 2020</div>
+                            <p class="mb-0">Creación de sitios web responsive y aplicaciones con JavaScript, HTML5, CSS3 y PHP. Mantenimiento de bases de datos MySQL.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Educación -->
+                <div class="section-card shadow">
+                    <div class="section-header">
+                        <i>🎓</i>
+                        <span>Educación</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="education-item">
+                            <div class="item-title">Ingeniería en Sistemas Computacionales</div>
+                            <div class="item-subtitle">Universidad de Colima</div>
+                            <div class="item-date">2015 - 2019</div>
+                            <p class="mb-0">Titulación con mención honorífica. Especialización en desarrollo web y bases de datos.</p>
+                        </div>
+                        <div class="education-item">
+                            <div class="item-title">Certificación Microsoft Azure Developer</div>
+                            <div class="item-subtitle">Microsoft</div>
+                            <div class="item-date">2022</div>
+                            <p class="mb-0">Certificación en desarrollo de soluciones en la nube con Azure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyectos -->
+                <div class="section-card shadow">
+                    <div class="section-header">
+                        <i>🚀</i>
+                        <span>Proyectos Destacados</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="project-item">
+                            <div class="item-title">Sistema de Gestión Empresarial</div>
+                            <div class="item-subtitle">Blazor • .NET 8 • SQL Server</div>
+                            <p class="mb-0">Plataforma completa para gestión de inventario, ventas y clientes. Implementación de reportes en tiempo real y dashboard analítico.</p>
+                        </div>
+                        <div class="project-item">
+                            <div class="item-title">E-commerce con Pasarela de Pago</div>
+                            <div class="item-subtitle">React • Node.js • MongoDB</div>
+                            <p class="mb-0">Tienda online con carrito de compras, sistema de pagos integrado y panel de administración. Más de 10,000 usuarios activos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Habilidades -->
+                <div class="section-card shadow">
+                    <div class="section-header">
+                        <i>⚡</i>
+                        <span>Habilidades Técnicas</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold">C# / .NET</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold">Blazor / ASP.NET</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold">JavaScript / React</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold">SQL Server / MySQL</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar-custom">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-container mt-4">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Azure</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">APIs REST</span>
+                            <span class="skill-item">Scrum</span>
+                            <span class="skill-item">Entity Framework</span>
+                            <span class="skill-item">Bootstrap</span>
+                            <span class="skill-item">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    
 </section>
 
 @code {
-
 }

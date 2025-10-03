@@ -1,92 +1,133 @@
-﻿<div class="container mt-3">
+﻿
+
+<div class="container mt-4">
     <div class="row">
         <div class="col-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
-                    <h5 class="card-title mb-0 text-dark">
-                        <i class="fas fa-clock text-secondary me-2"></i>Actividad Reciente
+            <div class="activity-card">
+                <div class="activity-header">
+                    <h5 class="activity-title">
+                        <span class="table-icon">🕐</span>
+                        Actividad Reciente
                     </h5>
-                    <button class="btn btn-sm btn-outline-primary">
-                        <i class="fas fa-eye me-1"></i>Ver todo
+                    <button class="view-all-btn">
+                        👁️ Ver todo
                     </button>
                 </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th class="border-0">Usuario</th>
-                                    <th class="border-0">Acción</th>
-                                    <th class="border-0">Fecha</th>
-                                    <th class="border-0">Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
-                                                <i class="fas fa-user text-primary"></i>
-                                            </div>
-                                            <span>María González</span>
+                <div class="table-responsive">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Acción</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: rgba(102, 126, 234, 0.15); color: #667eea;">
+                                            👤
                                         </div>
-                                    </td>
-                                    <td class="align-middle">Nuevo pedido #1234</td>
-                                    <td class="align-middle">Hace 5 min</td>
-                                    <td class="align-middle">
-                                        <span class="badge bg-success">Completado</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div class="bg-info bg-opacity-10 rounded-circle p-2 me-3">
-                                                <i class="fas fa-user text-info"></i>
-                                            </div>
-                                            <span>Carlos López</span>
+                                        <span class="user-name">María González</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="action-text">Nuevo pedido #1234</span>
+                                </td>
+                                <td>
+                                    <span class="date-text">Hace 5 min</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge badge-success">✓ Completado</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: rgba(23, 162, 184, 0.15); color: #17a2b8;">
+                                            👤
                                         </div>
-                                    </td>
-                                    <td class="align-middle">Registro de usuario</td>
-                                    <td class="align-middle">Hace 12 min</td>
-                                    <td class="align-middle">
-                                        <span class="badge bg-info">Pendiente</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div class="bg-success bg-opacity-10 rounded-circle p-2 me-3">
-                                                <i class="fas fa-user text-success"></i>
-                                            </div>
-                                            <span>Ana Martínez</span>
+                                        <span class="user-name">Carlos López</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="action-text">Registro de usuario</span>
+                                </td>
+                                <td>
+                                    <span class="date-text">Hace 12 min</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge badge-info">⏳ Pendiente</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: rgba(40, 167, 69, 0.15); color: #28a745;">
+                                            👤
                                         </div>
-                                    </td>
-                                    <td class="align-middle">Actualización de perfil</td>
-                                    <td class="align-middle">Hace 25 min</td>
-                                    <td class="align-middle">
-                                        <span class="badge bg-success">Completado</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="d-flex align-items-center">
-                                            <div class="bg-warning bg-opacity-10 rounded-circle p-2 me-3">
-                                                <i class="fas fa-user text-warning"></i>
-                                            </div>
-                                            <span>Pedro Sánchez</span>
+                                        <span class="user-name">Ana Martínez</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="action-text">Actualización de perfil</span>
+                                </td>
+                                <td>
+                                    <span class="date-text">Hace 25 min</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge badge-success">✓ Completado</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: rgba(255, 193, 7, 0.15); color: #d39e00;">
+                                            👤
                                         </div>
-                                    </td>
-                                    <td class="align-middle">Compra de producto</td>
-                                    <td class="align-middle">Hace 38 min</td>
-                                    <td class="align-middle">
-                                        <span class="badge bg-warning">En proceso</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                        <span class="user-name">Pedro Sánchez</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="action-text">Compra de producto</span>
+                                </td>
+                                <td>
+                                    <span class="date-text">Hace 38 min</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge badge-warning">⚙️ En proceso</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: rgba(220, 53, 69, 0.15); color: #dc3545;">
+                                            👤
+                                        </div>
+                                        <span class="user-name">Laura Ramírez</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="action-text">Cancelación de pedido</span>
+                                </td>
+                                <td>
+                                    <span class="date-text">Hace 1 hora</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge badge-danger">✕ Cancelado</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@code
+{
+
+}

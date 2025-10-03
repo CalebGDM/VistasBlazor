@@ -1,34 +1,134 @@
-﻿@page "/graphics"
+﻿@* ========== Archivo: Pages/Graphics.razor ========== *@
+@page "/graphics"
 @using VistasBlazor.Layout
 @using DashboardApp.Components
+
 <PageTitle>Graphics</PageTitle>
 
 
-<div class="row mb-5">
 
-    <BaseCard/>
-    <BaseCard />
+<div class="container py-4">
+    <!-- Header -->
+    <div class="graphics-header">
+        <h1 class="header-title">📊 Gráficas</h1>
+        <p class="header-subtitle">Graficas bien bonitas</p>
+    </div>
 
-</div>
+    <!-- Tarjetas de estadísticas -->
+    <div class="row stats-grid g-4">
+        <BaseCard Title="Ingresos Mensuales"
+                  Value="$85,420"
+                  Icon="💵"
+                  Percentage="+15.3%"
+                  IsPositive="true"
+                  Color="primary" />
 
+        <BaseCard Title="Conversión"
+                  Value="24.5%"
+                  Icon="🎯"
+                  Percentage="+5.2%"
+                  IsPositive="true"
+                  Color="success" />
 
-<div class="container my-4">
-    <div class="row g-4 justify-content-center">
-        <!-- Line Chart -->
-        <div class="col-md-6 d-flex justify-content-center">
-            <LineChart Data="userData" Labels="months" LineColor="#007bff" Width="600" Height="400" />
+        <BaseCard Title="Usuarios Activos"
+                  Value="3,847"
+                  Icon="👥"
+                  Percentage="+12.8%"
+                  IsPositive="true"
+                  Color="info" />
+
+        <BaseCard Title="Tasa de Rebote"
+                  Value="32.1%"
+                  Icon="📉"
+                  Percentage="-4.3%"
+                  IsPositive="true"
+                  Color="warning" />
+    </div>
+
+    <!-- Sección de gráficas principales -->
+    <div class="section-divider">
+        <h2 class="section-title">📈 Análisis de Tendencias</h2>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <!-- Gráfica de Línea -->
+        <div class="col-lg-6">
+            <div class="chart-card">
+                <div class="chart-actions">
+                    <button class="download-btn">📥 Exportar</button>
+                </div>
+                <div class="chart-title">
+                    <span class="chart-icon">📈</span>
+                    Crecimiento de Usuarios
+                </div>
+                <p class="chart-description">
+                    Evolución mensual de usuarios registrados en la plataforma
+                </p>
+                <div class="chart-container">
+                    <LineChart Data="userData" Labels="months" LineColor="#667eea" Width="500" Height="350" />
+                </div>
+                <div class="chart-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">@userData.Max()</div>
+                        <div class="stat-label">Máximo</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">@userData.Average().ToString("F0")</div>
+                        <div class="stat-label">Promedio</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">@userData.Min()</div>
+                        <div class="stat-label">Mínimo</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Pie Chart -->
-        <div class="col-md-6 d-flex justify-content-center">
-            <PieChart Data="salesDistributionData" Labels="salesCategories" Width="500" Height="400" />
+        <!-- Gráfica de Pastel -->
+        <div class="col-lg-6">
+            <div class="chart-card">
+                <div class="chart-actions">
+                    <button class="download-btn">📥 Exportar</button>
+                </div>
+                <div class="chart-title">
+                    <span class="chart-icon">🥧</span>
+                    Distribución de Ventas
+                </div>
+                <p class="chart-description">
+                    Porcentaje de ventas por categoría de productos
+                </p>
+                <div class="chart-container">
+                    <BarChart Data="ordersData" Labels="months" Width="900" Height="400" BarWidth="60" />
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #007bff;"></div>
+                        <span>Producto A (35%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #28a745;"></div>
+                        <span>Producto B (25%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffc107;"></div>
+                        <span>Producto C (20%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #dc3545;"></div>
+                        <span>Producto D (15%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #6f42c1;"></div>
+                        <span>Otros (5%)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div style="margin-left:25vw;">
-    <BarChart Data="ordersData" Labels="months" Width="600" Height="400" BarWidth="40" />
-</div>
 
+  
+    
+</div>
 
 @code {
     // Datos ficticios para mostrar gráficas

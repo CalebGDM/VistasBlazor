@@ -1,15 +1,35 @@
-﻿<div class="col-md-6">
-    <div class="card shadow-sm border-0 h-100">
+﻿
 
-
-        <div class="col-8">
-            <div class="card-body">
-                <h5 class="card-title fw-bold text-dark">Título</h5>
-                <p class="card-text text-muted mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </div>
+<div class="col-md-6 col-lg-3">
+    <div class="stat-card @Color">
+        <div class="stat-icon">@Icon</div>
+        <div class="stat-title">@Title</div>
+        <div class="stat-value">@Value</div>
+        <div class="stat-footer">
+            <span class="stat-percentage @(IsPositive ? "positive" : "negative")">
+                @(IsPositive ? "↑" : "↓") @Percentage
+            </span>
+            <span class="stat-text">vs último mes</span>
         </div>
-
     </div>
 </div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "Título";
+
+    [Parameter]
+    public string Value { get; set; } = "0";
+
+    [Parameter]
+    public string Icon { get; set; } = "📊";
+
+    [Parameter]
+    public string Percentage { get; set; } = "0%";
+
+    [Parameter]
+    public bool IsPositive { get; set; } = true;
+
+    [Parameter]
+    public string Color { get; set; } = "primary";
+}

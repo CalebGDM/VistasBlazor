@@ -1,15 +1,50 @@
 ﻿@page "/table"
 @using VistasBlazor.Layout
-<PageTitle>Tabla</PageTitle>
 
-<div class="row">
+<PageTitle>Dashboard</PageTitle>
 
-    <BaseCard/>
-    <BaseCard />
 
+<div class="container py-4">
+    <div class="dashboard-header">
+        <h1 class="header-title">📊 Dashboard Analítico (tablas)</h1>
+        <p class="header-subtitle">Monitorea el rendimiento y actividad en tiempo real</p>
+    </div>
+
+    <div class="row stats-row g-4">
+        <BaseCard Title="Total de Ventas"
+                  Value="$45,678"
+                  Icon="💰"
+                  Percentage="+12.5%"
+                  IsPositive="true"
+                  Color="primary" />
+
+        <BaseCard Title="Nuevos Usuarios"
+                  Value="1,234"
+                  Icon="👥"
+                  Percentage="+8.2%"
+                  IsPositive="true"
+                  Color="success" />
+
+        <BaseCard Title="Pedidos Activos"
+                  Value="89"
+                  Icon="📦"
+                  Percentage="-3.1%"
+                  IsPositive="false"
+                  Color="warning" />
+
+        <BaseCard Title="Satisfacción"
+                  Value="98.5%"
+                  Icon="⭐"
+                  Percentage="+2.4%"
+                  IsPositive="true"
+                  Color="info" />
+    </div>
+
+    <Table />
 </div>
-<Table/>
 
-@code {
+@code
+{
 
 }
+

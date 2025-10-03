@@ -1,16 +1,89 @@
 ﻿@page "/searchtable"
 @using VistasBlazor.Layout
+
 <PageTitle>Search Table</PageTitle>
 
-<div class="input-group rounded w-25">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <span class="input-group-text border-0 mx-4" id="search-addon">
-        <i class="fas fa-search ">buscar</i>
-    </span>
+
+<div class="container py-4">
+    <!-- Header con búsqueda -->
+    <div class="search-header">
+        <h1 class="search-title">🔍 Búsqueda Avanzada</h1>
+        <p class="search-subtitle">Encuentra la información que necesitas de forma rápida y precisa</p>
+
+        <!-- Barra de búsqueda mejorada -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <span class="search-icon">🔎</span>
+                <input type="search"
+                       class="search-input"
+                       placeholder="Buscar por usuario, acción o estado..."
+                       aria-label="Search"
+                       @bind="searchQuery"
+                       @bind:event="oninput" />
+                
+                <button class="search-btn" ">Buscar</button>
+            </div>
+
+            <!-- Sugerencias de búsqueda -->
+            <div class="search-suggestions">
+                <span class="suggestion-label">💡 Sugerencias:</span>
+                <span class="suggestion-tag" @onclick='() => searchQuery = "María"'>María</span>
+                <span class="suggestion-tag" @onclick='() => searchQuery = "Pedido"'>Pedido</span>
+                <span class="suggestion-tag" @onclick='() => searchQuery = "Completado"'>Completado</span>
+                <span class="suggestion-tag" @onclick='() => searchQuery = "Hoy"'>Hoy</span>
+            </div>
+        </div>
+
+        <!-- Filtros rápidos -->
+        <div class="filters-container">
+            <div class="filter-chip @(activeFilter == "todos" ? "active" : "")"
+                 @onclick='() => SetFilter("todos")'>
+                📋 Todos
+            </div>
+            <div class="filter-chip @(activeFilter == "completado" ? "active" : "")"
+                 @onclick='() => SetFilter("completado")'>
+                ✓ Completados
+            </div>
+            <div class="filter-chip @(activeFilter == "pendiente" ? "active" : "")"
+                 @onclick='() => SetFilter("pendiente")'>
+                ⏳ Pendientes
+            </div>
+            <div class="filter-chip @(activeFilter == "proceso" ? "active" : "")"
+                 @onclick='() => SetFilter("proceso")'>
+                ⚙️ En Proceso
+            </div>
+            <div class="filter-chip @(activeFilter == "cancelado" ? "active" : "")"
+                 @onclick='() => SetFilter("cancelado")'>
+                ✕ Cancelados
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Tabla de resultados -->
+    <Table />
 </div>
 
-<Table/>
-
 @code {
+    private string searchQuery = "";
+    private string activeFilter = "todos";
 
+    // Estadísticas de ejemplo
+    private int totalResults = 156;
+    private int completedCount = 89;
+    private int pendingCount = 42;
+    private int inProgressCount = 25;
+
+  
+
+    private void ClearSearch()
+    {
+        searchQuery = "";
+    }
+
+    private void SetFilter(string filter)
+    {
+        activeFilter = filter;
+        Console.WriteLine($"Filtro activo: {filter}");
+    }
 }

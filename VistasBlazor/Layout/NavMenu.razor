@@ -1,30 +1,130 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Vistas</a>
+﻿<style>
+    /* Contenedor principal del aside/top */
+    .nav-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        transition: all 0.4s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Cuando el checkbox está activo, se transforma en top */
+    #nav-toggle:checked ~ .nav-container {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem 0;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .nav-scrollable nav {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0.5rem;
+    }
+
+    /* Cuando es top, poner los items en fila */
+    #nav-toggle:checked ~ .nav-container .nav-scrollable nav {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .nav-item .nav-link {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+        .nav-item .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+    /* Checkbox oculto */
+    .navbar-toggler {
+        display: none;
+    }
+
+    /* Mostrar toggle en pantallas pequeñas */
+    
+    {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1100;
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .navbar-toggler::before {
+        content: '☰';
+        color: white;
+        font-size: 1.5rem;
+        display: block;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    }
+</style>
+
+<!-- Checkbox toggle -->
+<input type="checkbox" id="nav-toggle" class="navbar-toggler" />
+
+<!-- Menú aside/top -->
+<div class="nav-container">
+    <div class="nav-scrollable" onclick="document.getElementById('nav-toggle').click()">
+        <nav class="flex-column">
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="bi bi-house-door-fill-nav-menu"></span> Home
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="TarjetaFoto">
+                    <span class="bi"></span> Tarjetas
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="searchtable">
+                    <span class="bi bi-list-nested-nav-menu"></span> Busqueda
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="table">
+                    <span class="bi bi-list-nested-nav-menu"></span> Tabla
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="graphics">
+                    <span class="bi bi-list-nested-nav-menu"></span> Grafica
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="tabs">
+                    <span class="bi bi-list-nested-nav-menu"></span> Tabs
+                </NavLink>
+            </div>
+        </nav>
     </div>
 </div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="TarjetaFoto">
-                <span class="bi " aria-hidden="true"></span> Tarjetas
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
