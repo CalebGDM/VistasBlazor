@@ -2,7 +2,7 @@ name: Deploy Blazor to GitHub Pages
 
 on:
   push:
-    branches: [ master ]  # Cambia a 'master' si es tu rama principal
+    branches: [ main ]  # Cambia a 'master' si es tu rama principal
   workflow_dispatch:
 
 permissions:
@@ -25,7 +25,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '9.0.x'
+        dotnet-version: '8.0.x'
     
     - name: Restore dependencies
       run: dotnet restore
@@ -33,8 +33,17 @@ jobs:
     - name: Build and Publish
       run: dotnet publish -c Release -o release --nologo
     
+    - name: Debug - List files
+      run: |
+        echo "=== Contenido de release/ ==="
+        ls -la release/
+        echo "=== Buscando wwwroot ==="
+        find release/ -name "wwwroot" -type d
+        echo "=== Buscando index.html ==="
+        find release/ -name "index.html"
+    
     - name: Change base-tag in index.html
-      run: sed -i 's/<base href="\/" \/>/<base href="\/VistasBlazor\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorApp2\/" \/>/g' release/wwwroot/index.html
     
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
