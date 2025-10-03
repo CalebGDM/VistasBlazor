@@ -43,7 +43,7 @@ jobs:
         find release/ -name "index.html"
     
     - name: Change base-tag in index.html
-      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorApp2\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/VistasBlazor\/" \/>/g' release/wwwroot/index.html
     
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
