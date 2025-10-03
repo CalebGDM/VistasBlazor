@@ -25,7 +25,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '9.0.x'
     
     - name: Restore dependencies
       run: dotnet restore
@@ -33,23 +33,14 @@ jobs:
     - name: Build and Publish
       run: dotnet publish -c Release -o release --nologo
     
-    - name: Debug - List files
-      run: |
-        echo "=== Contenido de release/ ==="
-        ls -la release/
-        echo "=== Buscando wwwroot ==="
-        find release/ -name "wwwroot" -type d
-        echo "=== Buscando index.html ==="
-        find release/ -name "index.html"
-    
     - name: Change base-tag in index.html
-      run: sed -i 's/<base href="\/" \/>/<base href="\/VistasBlazor\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/VistasBlazor\/" \/>/g' release/wwwroot/VistasBlazor/index.html
     
     - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
+      run: touch release/wwwroot/VistasBlazor/.nojekyll
     
     - name: Copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
+      run: cp release/wwwroot/VistasBlazor/index.html release/wwwroot/VistasBlazor/404.html
     
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -57,7 +48,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: release/wwwroot
+        path: release/wwwroot/VistasBlazor
     
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
