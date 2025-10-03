@@ -2,7 +2,7 @@ name: Deploy Blazor to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # Cambia a 'master' si es tu rama principal
+    branches: [ master ]  # Cambia a 'master' si es tu rama principal
   workflow_dispatch:
 
 permissions:
