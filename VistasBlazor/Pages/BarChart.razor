@@ -1,0 +1,49 @@
+﻿@namespace DashboardApp.Components
+
+<svg width="@Width" height="@Height" style="background:#ffffff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.2)">
+    <defs>
+        <!-- Degradado de color -->
+        <linearGradient id="barGradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="@BarColorStart" />
+            <stop offset="100%" stop-color="@BarColorEnd" />
+        </linearGradient>
+    </defs>
+
+    <!-- Ejes -->
+    <line x1="40" y1="@YAxisEnd" x2="@(Width - 20)" y2="@YAxisEnd" stroke="black" stroke-width="1" />
+    <line x1="40" y1="20" x2="40" y2="@YAxisEnd" stroke="black" stroke-width="1" />
+
+    @for (int i = 0; i < Data.Length; i++)
+    {
+        var value = Data[i];
+        var barHeight = value;
+        var x = 60 + i * (BarWidth + Spacing);
+        var y = YAxisEnd - barHeight;
+
+        <!-- Barra -->
+        <rect x="@x" y="@y" width="@BarWidth" height="@barHeight" rx="6" fill="url(#barGradient)" />
+
+        <!-- Valor encima de la barra -->
+        @:<text x="30" y="@(y - 30)" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">
+            @value
+        @:</text>
+
+        <!-- Etiqueta abajo -->
+        @:<text x="@(x + BarWidth/2)" y="220" text-anchor="middle" font-size="12" fill="#555">
+            @Labels[i]
+        @:</text>
+    }
+</svg>
+
+@code {
+    [Parameter] public int[] Data { get; set; } = Array.Empty<int>();
+    [Parameter] public string[] Labels { get; set; } = Array.Empty<string>();
+    [Parameter] public int BarWidth { get; set; } = 50;
+    [Parameter] public int Spacing { get; set; } = 30;
+    [Parameter] public int Width { get; set; } = 600;
+    [Parameter] public int Height { get; set; } = 300;
+    [Parameter] public string BarColorStart { get; set; } = "#4facfe";
+    [Parameter] public string BarColorEnd { get; set; } = "#00f2fe";
+
+    private int YAxisEnd => Height - 80; // margen inferior
+}

@@ -1,0 +1,61 @@
+﻿@namespace DashboardApp.Components
+@using System.Globalization
+
+<svg width="@Width" height="@Height" style="background:#ffffff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.2)">
+    <!-- Ejes -->
+    <line x1="40" y1="@YAxisEnd" x2="@(Width - 20)" y2="@YAxisEnd" stroke="black" stroke-width="1" />
+    <line x1="40" y1="20" x2="40" y2="@YAxisEnd" stroke="black" stroke-width="1" />
+
+    <!-- Línea de tendencia -->
+    <polyline 
+        points="@GetPoints()" 
+        fill="none" 
+        stroke="@LineColor" 
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        style="filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.2))"
+    />
+
+    <!-- Puntos de datos -->
+    @for (int i = 0; i < Data.Length; i++)
+    {
+        var x = 60 + i * Spacing;
+        var y = YAxisEnd - Data[i];
+
+        <circle cx="@x" cy="@y" r="6" fill="white" stroke="@LineColor" stroke-width="3" />
+        @:<text x="20" y="@(y )" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">
+            @Data[i]
+        @:</text>
+    }
+
+    <!-- Labels del eje X -->
+    @for (int i = 0; i < Labels.Length; i++)
+    {
+        var x = 60 + i * Spacing;
+       @: <text x="@(x)" y="250" text-anchor="middle" font-size="12" fill="#555">@Labels[i]</text>
+    }
+</svg>
+
+@code {
+    [Parameter] public int[] Data { get; set; } = Array.Empty<int>();
+    [Parameter] public string[] Labels { get; set; } = Array.Empty<string>();
+    [Parameter] public int Spacing { get; set; } = 80;
+    [Parameter] public int Width { get; set; } = 500;
+    [Parameter] public int Height { get; set; } = 280;
+    [Parameter] public string LineColor { get; set; } = "#ff6a00";
+
+    private int YAxisEnd => Height - 80; // margen inferior
+
+    private string GetPoints()
+    {
+        var points = new List<string>();
+        for (int i = 0; i < Data.Length; i++)
+        {
+            var x = 60 + i * Spacing;
+            var y = YAxisEnd - Data[i];
+            points.Add($"{x},{y}");
+        }
+        return string.Join(" ", points);
+    }
+}
