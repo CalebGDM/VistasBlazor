@@ -1,4 +1,28 @@
-- name: Setup .NET
+name: Deploy Blazor to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]  # Cambia a 'master' si es tu rama principal
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x'
